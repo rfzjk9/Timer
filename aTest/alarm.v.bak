@@ -1,0 +1,3 @@
+module alarm(SW,clk1,clk_s,light);
+
+endmodule

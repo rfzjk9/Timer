@@ -1,0 +1,22 @@
+module showLED(numbers,ledsign);
+//译码器：输入8bit数据，输出led控制信号
+//7..0 a..h
+	input[3:0] numbers;
+	output reg[7:0] ledsign;
+	always @(numbers) begin
+		case(numbers[3:0])     //abcd_efgh
+			4'b0000:ledsign[7:0]=8'b0000_0011;
+			4'b0001:ledsign[7:0]=8'b1001_1111;
+			4'b0010:ledsign[7:0]=8'b0010_0101;
+			4'b0011:ledsign[7:0]=8'b0000_1101;
+			4'b0100:ledsign[7:0]=8'b1001_1001;
+			4'b0101:ledsign[7:0]=8'b0100_1001;
+			4'b0110:ledsign[7:0]=8'b0100_0001;
+			4'b0111:ledsign[7:0]=8'b0001_1111;
+			4'b1000:ledsign[7:0]=8'b0000_0001;
+			4'b1001:ledsign[7:0]=8'b0000_1001;
+			4'b1010:ledsign[7:0]=8'b1111_1111;
+			default:ledsign[7:0]=8'b1111_1101;
+			endcase
+			end
+endmodule
